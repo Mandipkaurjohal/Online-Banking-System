@@ -15,9 +15,13 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String accountNumber;
+    @Column(nullable = false)
     private double balance;
-    @OneToOne
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     public User user;
 
 }
